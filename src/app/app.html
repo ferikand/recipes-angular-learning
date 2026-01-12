@@ -1,11 +1,12 @@
 <h1>{{ title }}</h1>
-<app-counter [startValue]="tasks.length"></app-counter>
-@if (tasks.length > 0) {
-    <ul>
-        @for (task of tasks; track task.id) {
-            <li>{{ task.title }}</li>
-        }
-    </ul>
-} @else {
-    <p>Tasks list is empty</p>
-}
+
+<nav>
+    <a routerLink="/">Главная</a> |
+    <a routerLink="/tasks">Задачи</a>
+</nav>
+
+<app-counter [startValue]="0"></app-counter>
+
+<hr>
+
+<router-outlet></router-outlet>
