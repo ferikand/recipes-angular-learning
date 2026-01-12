@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, signal, computed} from '@angular/core';
 
 
 @Component({
@@ -9,6 +9,8 @@ import {Component, signal} from '@angular/core';
 export class App {
     title = 'Recipes';
     counter = signal(0)
+    isEven = computed(() => this.counter() % 2 === 0)
+
 
     increment() {
         this.counter.update(prev => prev + 1);
