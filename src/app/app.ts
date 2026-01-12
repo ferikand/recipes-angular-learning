@@ -11,10 +11,10 @@ export class App {
     counter = signal(0)
 
     increment() {
-        this.counter.set(this.counter() + 1);
+        this.counter.update(prev => prev + 1);
     }
 
     decrement() {
-        this.counter.set(this.counter() - 1);
+        this.counter.update(prev => prev - 1)
     }
 }
