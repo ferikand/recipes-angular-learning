@@ -8,7 +8,8 @@ import {CommonModule} from "@angular/common";
     template: `<p>{{ counter() }}</p>
     <p>{{ isEven() ? 'Even' : 'Odd' }}</p>
     <button (click)="increment()">Press me +</button>
-    <button [disabled]="counter() <= 0" (click)="decrement()">Press me -</button>`
+    <button [disabled]="counter() <= 0" (click)="decrement()">Press me -</button>`,
+    styleUrls: ['./counter.component.css']
 })
 export class CounterComponent {
     // 1. Сигнал создается с начальным значением 0
