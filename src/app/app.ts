@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, signal} from '@angular/core';
+
 
 @Component({
     selector: 'app-root',
@@ -7,13 +8,13 @@ import {Component} from '@angular/core';
 })
 export class App {
     title = 'Recipes';
-    counter = 0
+    counter = signal(0)
 
     increment() {
-        this.counter++
+        this.counter.set(this.counter() + 1);
     }
 
     decrement() {
-        this.counter--
+        this.counter.set(this.counter() - 1);
     }
 }
