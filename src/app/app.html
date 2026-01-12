@@ -2,4 +2,4 @@
 <p>{{ counter() }}</p>
 <p>{{ isEven() ? 'Even' : 'Odd' }}</p>
 <button (click)="increment()">Press me +</button>
-<button (click)="decrement()">Press me -</button>
+<button [disabled]="counter() <= 0" (click)="decrement()">Press me -</button>
