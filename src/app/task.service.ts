@@ -25,4 +25,15 @@ export class TaskService {
         return this.tasks
     }
 
+    public addTask(title: string) {
+        const maxId = this.tasks.length > 0 ? Math.max(...this.tasks.map(t => t.id)) : 0;
+        const newId = maxId + 1;
+
+        const newTask = {
+            id: newId,
+            title,
+        }
+        this.tasks.push(newTask)
+    }
+
 }

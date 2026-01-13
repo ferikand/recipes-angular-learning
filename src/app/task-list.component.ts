@@ -8,7 +8,7 @@ import {FormsModule} from "@angular/forms";
     standalone: true,
     imports: [CommonModule, FormsModule],
     template: `
-        <form>
+        <form (ngSubmit)="addTask()">
             <input type="text" [(ngModel)]="newTaskTitle" name="taskTitle" placeholder="Что нужно сделать?">
             <button type="submit">Добавить</button>
         </form>
@@ -32,6 +32,13 @@ export class TaskListComponent {
 
     constructor(private readonly taskService: TaskService) {
         this.tasks = this.taskService.getTasks();
+    }
+
+    public addTask() {
+        if (this.newTaskTitle.trim() !== '') {
+            this.taskService.addTask(this.newTaskTitle);
+            this.newTaskTitle = '';
+        }
     }
 }
         
