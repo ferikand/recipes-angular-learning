@@ -1,4 +1,5 @@
 import express from 'express';
+import {loadTasks} from "./utils.js";
 
 // 1. Создаем экземпляр приложения
 const app = express();
@@ -11,6 +12,11 @@ app.get('/', (req, res) => {
     // res - объект ответа (что мы отправим клиенту)
     res.send('Привет, мир! Мой первый сервер работает.');
 });
+
+app.get('/tasks', (req, res) => {
+    const tasks = loadTasks()
+    res.json(tasks);
+})
 
 // 3. Запускаем сервер, чтобы он начал слушать указанный порт
 app.listen(port, () => {
