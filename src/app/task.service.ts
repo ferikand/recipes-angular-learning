@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core'
 
 @Injectable({providedIn: 'root'})
 export class TaskService {
-
     private readonly tasks = [
         {
             id: 1,
