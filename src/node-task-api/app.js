@@ -1,18 +1,19 @@
-import chalk from "chalk";
-import {generateId, loadTasks, saveTasks} from './utils.js'
+import express from 'express';
 
-/** @type {Array<{id: number, title: string}>} */ // <--- ДОБАВЬТЕ ЭТУ СТРОКУ
-const tasks = loadTasks();
+// 1. Создаем экземпляр приложения
+const app = express();
+const port = 3000; // Порт, на котором будет работать сервер
 
-// Теперь IDE знает, что 'tasks' - это массив, и ошибка должна исчезнуть.
+// 2. Создаем правило (маршрут) для главного URL ('/')
+// Когда кто-то зайдет на http://localhost:3000/, выполнится эта функция
+app.get('/', (req, res) => {
+    // req - объект запроса (что пришло от клиента)
+    // res - объект ответа (что мы отправим клиенту)
+    res.send('Привет, мир! Мой первый сервер работает.');
+});
 
-console.log(chalk.green('Задачи до добавления: '), ...tasks);
-
-const newTask = {id: generateId(), title: 'Починить баг'};
-tasks.push(newTask);
-
-console.log(chalk.yellow('Добавили новую задачу. Сохраняем...'));
-saveTasks(tasks);
-
-console.log(chalk.blue.bold('Готово! Файл tasks.json обновлен.'));
-console.log(chalk.green('Задачи после добавления: '), ...tasks);
+// 3. Запускаем сервер, чтобы он начал слушать указанный порт
+app.listen(port, () => {
+    console.log(`Сервер успешно запущен на http://localhost:${port}`);
+});
+    
