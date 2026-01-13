@@ -1,25 +1,15 @@
 import express from 'express';
-import {loadTasks} from "./utils.js";
+import tasksRouter from './routes/tasks.js'; // 1. Импортируем наш новый роутер
 
-// 1. Создаем экземпляр приложения
 const app = express();
-const port = 3000; // Порт, на котором будет работать сервер
+const port = 3000;
 
-// 2. Создаем правило (маршрут) для главного URL ('/')
-// Когда кто-то зайдет на http://localhost:3000/, выполнится эта функция
-app.get('/', (req, res) => {
-    // req - объект запроса (что пришло от клиента)
-    // res - объект ответа (что мы отправим клиенту)
-    res.send('Привет, мир! Мой первый сервер работает.');
-});
+app.use(express.json());
 
-app.get('/tasks', (req, res) => {
-    const tasks = loadTasks()
-    res.json(tasks);
-})
+// 2. "Монтируем" роутер.
+// Говорим: "Все запросы, которые начинаются с /api/tasks, отправляй на обработку в tasksRouter"
+app.use('/api/tasks', tasksRouter);
 
-// 3. Запускаем сервер, чтобы он начал слушать указанный порт
 app.listen(port, () => {
-    console.log(`Сервер успешно запущен на http://localhost:${port}`);
+    console.log(`Сервер запущен на http://localhost:${port}`);
 });
-    
