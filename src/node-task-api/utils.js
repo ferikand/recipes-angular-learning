@@ -1,4 +1,4 @@
-const fs = require('node:fs');
+import fs from 'node:fs'
 
 function generateId() {
     // Ваша функция генерации ID
@@ -28,4 +28,4 @@ function saveTasks(tasks) {
 }
 
 
-module.exports = {generateId, loadTasks, saveTasks};
+export {generateId, loadTasks, saveTasks};
