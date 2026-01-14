@@ -10,7 +10,7 @@ import {RecipeList} from "./recipe-list/recipe-list";
     imports: [RouterOutlet, RecipeList]
 })
 export class App {
-    protected  readonly title =signal('My Recipe Box') ;
+    protected  readonly title = signal('My Recipe Box') ;
 
     constructor() { }
 

@@ -1,0 +1,25 @@
+<div class="recipe-card">
+    <h2>{{ recipe().name }}
+        @if (recipe().isFavorite) {
+            <span style="color: yellow;">★</span>
+        }
+    </h2>
+
+
+    <img [src]="recipe().imgUrl" alt="{{ recipe().name }}">
+    <p>{{ recipe().description }}</p>
+
+    <h3>Ingredients</h3>
+    <ul>
+        @for (ingredient of adjustedIngredients(); track ingredient.name) {
+            <li>{{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}</li>
+        }
+    </ul>
+
+    <h3>Servings: {{ servings() }}</h3>
+    <div class="servings-controls">
+        <button (click)="increase()">+</button>
+        <button [disabled]="servings() <= 1" (click)="decrease()">-</button>
+    </div>
+
+</div>

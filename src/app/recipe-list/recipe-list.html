@@ -1,15 +1,6 @@
-<p>{{ recipe().name }}</p>
-<img [src]="recipe().imgUrl" alt="{{ recipe().name }}">
-<p>{{ recipe().description }}</p>
-<ul>
-    @for (ingredient of adjustedIngredients(); track ingredient.name) {
-        <li>{{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}</li>
-    }
-</ul>
-<p>Servings: {{ servings() }}</p>
-<button (click)="increase()">+</button>
-<button [disabled]="servings() <= 1" (click)="decrease()">-</button>
-<pre>{{ adjustedIngredients() | json }}</pre>
+<app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
+
 <br>
 <button (click)="onButton1Click()">button 1</button>
 <button (click)="onButton2Click()">button 2</button>
+        

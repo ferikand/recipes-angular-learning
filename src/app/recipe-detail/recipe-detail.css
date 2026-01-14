@@ -1,0 +1,40 @@
+/* Стили для всей карточки рецепта */
+.recipe-card {
+    max-width: 500px; /* Ограничим ширину, чтобы не растягивалась на весь экран */
+    margin: 20px auto; /* Центрируем карточку на странице */
+    padding: 20px; /* Внутренние отступы, чтобы контент не прилипал к краям */
+    border: 1px solid #ccc; /* Легкая рамка */
+    border-radius: 8px; /* Скругляем углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для объема */
+    font-family: sans-serif; /* Установим простой шрифт */
+}
+
+/* Стили для изображения */
+.recipe-card img {
+    width: 100%; /* Изображение растягивается на всю ширину карточки */
+    height: auto; /* Высота подстраивается автоматически */
+    border-radius: 8px; /* Также скругляем углы у картинки */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+/* Стили для основного заголовка */
+.recipe-card h2 {
+    font-size: 24px; /* Увеличиваем размер шрифта */
+    font-weight: bold; /* Делаем его жирным */
+    margin-top: 0; /* Убираем верхний отступ по умолчанию */
+}
+
+/* Стили для подзаголовков (Ingredients, Servings) */
+.recipe-card h3 {
+    font-size: 18px;
+    border-bottom: 1px solid #eee; /* Линия-разделитель */
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* Стили для кнопок управления порциями */
+.servings-controls button {
+    margin-right: 10px; /* Отступ между кнопками */
+    padding: 5px 10px;
+    font-size: 16px;
+}
