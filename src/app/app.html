@@ -1,12 +1,6 @@
-<h1>{{ title }}</h1>
-
-<nav>
-    <a routerLink="/">Главная</a> |
-    <a routerLink="/tasks">Задачи</a>
-</nav>
-
-<app-counter [startValue]="0"></app-counter>
-
-<hr>
-
+<h1>{{ title() }}</h1>
+<p>{{ button1Text() }}</p>
+<p>{{ button2Text() }}</p>
+<button (click)="onButton1Click()">button 1</button>
+<button (click)="onButton2Click()">button 2</button>
 <router-outlet></router-outlet>

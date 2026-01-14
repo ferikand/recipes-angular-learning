@@ -28,6 +28,18 @@ router.post('/', (req, res) => {
     res.status(201).json(newTask);
 });
 
+router.delete('/:id', (req, res) => {
+    const {id} = req.params;
+    const tasks = loadTasks();
+    const taskIndex = tasks.findIndex(task => task.id === +id);
+
+    if (taskIndex === -1) {
+        return res.status(404).send('Task not found');
+    }
+    tasks.splice(taskIndex, 1);
+    saveTasks(tasks);
+    res.sendStatus(204);
+})
 
 // 3. Экспортируем роутер
 export default router;
