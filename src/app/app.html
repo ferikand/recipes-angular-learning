@@ -1,6 +1,6 @@
 <h1>{{ title() }}</h1>
-<p>{{ button1Text() }}</p>
-<p>{{ button2Text() }}</p>
+<p>{{ recipe().name }}</p>
+<p>{{ recipe().description }}</p>
 <button (click)="onButton1Click()">button 1</button>
 <button (click)="onButton2Click()">button 2</button>
 <router-outlet></router-outlet>
