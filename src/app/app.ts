@@ -13,7 +13,8 @@ import {RecipeModel} from "./models";
 export class App {
 
     protected  readonly title =signal('My Recipe Box') ;
-    recipe=signal<RecipeModel>(MOCK_RECIPES[0])
+    protected recipe=signal<RecipeModel>(MOCK_RECIPES[0])
+    servings=signal(1)
 
     constructor() { }
     onButton1Click(){
@@ -22,5 +23,12 @@ export class App {
     }
     onButton2Click(){
         this.recipe.set(MOCK_RECIPES[1])
+    }
+    increase(){
+        this.servings.update(servings=>servings+1)
+    }
+    decrease(){
+        this.servings.update(servings=>{
+            if (servings>1){return  servings-1} else {return servings}})
     }
 }
