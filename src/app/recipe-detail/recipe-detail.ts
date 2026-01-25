@@ -1,4 +1,4 @@
-import { Component, computed, input, signal} from '@angular/core';
+import {Component, computed, input, signal} from '@angular/core';
 import {RecipeModel} from "../models";
 
 
@@ -12,9 +12,6 @@ import {RecipeModel} from "../models";
 export class RecipeDetail {
 readonly recipe = input.required<RecipeModel>()
   servings=signal(1)
-
-  constructor() { }
-
   adjustedIngredients=computed(()=>{
     return this.recipe().ingredients.map(ingredient=>{
       return {
@@ -24,9 +21,10 @@ readonly recipe = input.required<RecipeModel>()
     })
   })
 
-  increase(){
-    this.servings.update(servings=>servings+1)
+  constructor() {  }
 
+  increase(){
+    this.servings.update(servings=>servings + 1)
   }
 
   decrease(){

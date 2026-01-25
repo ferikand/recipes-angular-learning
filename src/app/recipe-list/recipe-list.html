@@ -1,6 +1,8 @@
+<input [(ngModel)]="searchTerm" placeholder="Search Recipes" type="text">
 <app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
 
 <br>
-<button (click)="onButton1Click()">button 1</button>
-<button (click)="onButton2Click()">button 2</button>
-        
+
+@for (item of filteredRecipes(); track item.id) {
+    <button (click)="onButtonClick(item)">{{ item.name }}</button>
+}
