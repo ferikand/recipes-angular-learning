@@ -1,8 +1,8 @@
-import {Component, computed, signal} from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {RecipeModel} from "../models";
-import {RecipeDetail} from "../recipe-detail/recipe-detail";
-import {MOCK_RECIPES} from "../mock-recipes";
+import { Component, computed, signal, inject } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { RecipeModel } from "../models";
+import { RecipeDetail } from "../recipe-detail/recipe-detail";
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,14 +12,20 @@ import {MOCK_RECIPES} from "../mock-recipes";
   styleUrl: './recipe-list.css',
 })
 export class RecipeList {
-  searchTerm=signal('')
-  filteredRecipes=computed(()=>{
-    return MOCK_RECIPES.filter(recipe=>recipe.name.toLowerCase().includes(this.searchTerm().toLowerCase()))})
-  protected recipe=signal<RecipeModel>(MOCK_RECIPES[0])
+  searchTerm = signal('');
+  private recipeService = inject(Recipe);
+
+  filteredRecipes = computed(() => {
+    return this.recipeService.getRecipes().filter((recipe) =>
+        recipe.name.toLowerCase().includes(this.searchTerm().toLowerCase())
+    );
+  });
+
+  protected recipe = signal<RecipeModel>(this.recipeService.getRecipes()[0]);
 
   constructor() { }
 
-  onButtonClick(selectedRecipe: RecipeModel){
-    this.recipe.set(selectedRecipe)
+  onButtonClick(selectedRecipe: RecipeModel) {
+    this.recipe.set(selectedRecipe);
   }
 }

@@ -10,7 +10,7 @@
     "serve:ssr:recipes": "node dist/recipes/server/server.mjs"
   },
   "prettier": {
-    "printWidth": 100,
+    "printWidth": 150,
     "singleQuote": true,
     "overrides": [
       {
