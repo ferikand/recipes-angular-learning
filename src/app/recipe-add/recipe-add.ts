@@ -2,10 +2,11 @@ import { Component,inject } from '@angular/core';
 import {ReactiveFormsModule,FormBuilder,  Validators} from '@angular/forms';
 import {Recipe} from "../recipe";
 import {Router} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-recipe-add',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatButtonModule],
   templateUrl: './recipe-add.html',
   styleUrl: './recipe-add.css',
 })
