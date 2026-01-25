@@ -1,13 +1,13 @@
 import { Component, computed, signal, inject } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { RecipeModel } from "../models";
-import { RecipeDetail } from "../recipe-detail/recipe-detail";
 import { Recipe } from '../recipe';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
   standalone: true,
-  imports: [RecipeDetail, FormsModule],
+  imports: [ FormsModule, RouterLink],
   templateUrl: './recipe-list.html',
   styleUrl: './recipe-list.css',
 })
@@ -21,11 +21,8 @@ export class RecipeList {
     );
   });
 
-  protected recipe = signal<RecipeModel>(this.recipeService.getRecipes()[0]);
 
   constructor() { }
 
-  onButtonClick(selectedRecipe: RecipeModel) {
-    this.recipe.set(selectedRecipe);
-  }
+
 }

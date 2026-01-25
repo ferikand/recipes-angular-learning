@@ -1,8 +1,13 @@
 <input [(ngModel)]="searchTerm" placeholder="Search Recipes" type="text">
-<app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
 
 <br>
 
-@for (item of filteredRecipes(); track item.id) {
-    <button (click)="onButtonClick(item)">{{ item.name }}</button>
-}
+<h2>Recipes</h2>
+
+<ul>
+  @for (item of filteredRecipes(); track item.id) {
+    <li>
+      <a [routerLink]="['/recipe', item.id]">{{ item.name }}</a>
+    </li>
+  }
+</ul>
